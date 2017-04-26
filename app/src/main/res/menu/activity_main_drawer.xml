@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:itemIconTint="@android:color/holo_orange_light">
+
+    <group
+        android:id="@+id/group_action_layout"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_notice"
+            android:icon="@drawable/vt_short_text_24dp"
+            android:title="通知"
+            app:actionLayout="@layout/menu_action_notice"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/nav_tip"
+            android:icon="@drawable/vt_short_text_24dp"
+            android:title="提示"
+            app:actionLayout="@layout/menu_action_tip" />
+        <item
+            android:id="@+id/nav_switch"
+            android:icon="@drawable/vt_short_text_24dp"
+            android:title="选择"
+            app:actionLayout="@layout/menu_action_switch" />
+        <item
+            android:id="@+id/nav_msg"
+            android:icon="@drawable/vt_short_text_24dp"
+            android:title="信息"
+            app:actionLayout="@layout/menu_action_msg" />
+    </group>
+
+    <item android:title="样式">
+        <menu>
+            <item
+                android:id="@+id/nav_behavior"
+                android:checkable="true"
+                android:icon="@drawable/vt_short_text_24dp"
+                android:title="自定义behavior"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/nav_bottom_navigation"
+                android:icon="@drawable/vt_short_text_24dp"
+                android:title="底部导航栏" />
+            <item
+                android:id="@+id/nav_tag_group"
+                android:icon="@drawable/vt_short_text_24dp"
+                android:title="标签" />
+        </menu>
+    </item>
+
+    <item android:title="使用">
+        <menu>
+            <item
+                android:id="@+id/nav_rxJava"
+                android:icon="@drawable/vt_short_text_24dp"
+                android:title="RxJava" />
+            <item
+                android:id="@+id/nav_retrofit"
+                android:icon="@drawable/vt_short_text_24dp"
+                android:title="Retrofit" />
+            <item
+                android:id="@+id/nav_dagger2"
+                android:icon="@drawable/vt_short_text_24dp"
+                android:title="Dagger2" />
+            <item
+                android:id="@+id/nav_hot"
+                android:icon="@drawable/vt_short_text_24dp"
+                android:title="热补丁" />
+            <item
+                android:id="@+id/nav_vector"
+                android:icon="@drawable/vt_short_text_24dp"
+                android:title="vector" />
+        </menu>
+    </item>
+
+    <group>
+        <item
+            android:id="@+id/nav_theme"
+            android:title="主题风格" />
+        <item
+            android:id="@+id/nav_dayNight"
+            android:title="夜间模式" />
+        <item
+            android:id="@+id/nav_setting"
+            android:title="设置" />
+        <item
+            android:id="@+id/nav_about"
+            android:title="关于" />
+    </group>
+
+</menu>
