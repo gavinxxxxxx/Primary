@@ -4,22 +4,25 @@ def fragmentationVersion = "0.10.3"
 def fragmentationSwipeBackVersion = "0.7.9"
 def rxJavaVersion = "2.0.9"
 def rxAndroidVersion = "2.0.1"
-def retrofitVersion = "2.1.0"
-def okHttpLoggingInterceptorVersion = "3.5.0"
+def rxPermissionsVersion = "0.9.4@aar"
+def retrofitVersion = "2.2.0"
+def gsonVersion = "2.8.0"
+def okHttpVersion = "3.6.0"
 def daggerVersion = "2.10"
-def circleImageViewVersion = "2.1.0"
+def shapedImageViewVersion = "0.8.4"
 def glideVersion = "3.7.0"
-def guavaVersion = "18.0"
+def glideOkHttp3IntegrationVersion = "1.4.0@aar"
 
 
 ext {
-    applicationId = "gavin.primary"
+    applicationId = "com.yanghm.work.activity"
     buildToolsVersion = "25.0.3"
     compileSdkVersion = 25
     minSdkVersion = 16
     targetSdkVersion = 25
-    versionCode = 1
-    versionName = "0.0.1"
+    versionCode = 200
+    versionName = "2.0.0"
+    resConfigs = "zh" // 只保留中文
 
 
     libSupportV4 = "com.android.support:support-v4:${supportVersion}"
@@ -28,6 +31,7 @@ ext {
     libSupportRecyclerView = "com.android.support:recyclerview-v7:${supportVersion}"
     libSupportCardView = "com.android.support:cardview-v7:${supportVersion}"
     libSupportGridLayout = "com.android.support:gridlayout-v7:${supportVersion}"
+    libSupportVectorDrawable = "com.android.support:support-vector-drawable:${supportVersion}"
     libSupportPalette = "com.android.support:palette-v7:${supportVersion}"
     libSupportPercent = "com.android.support:percent:${supportVersion}"
 
@@ -36,18 +40,22 @@ ext {
 
     libRxJava = "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
     libRxAndroid = "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+    libRxPermissions = "com.tbruyelle.rxpermissions2:rxpermissions:${rxPermissionsVersion}"
 
     libRetrofit = "com.squareup.retrofit2:retrofit:${retrofitVersion}"
     libRetrofitConverterGson = "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
-    libRetrofitAdapterRxJava = "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}"
-    libOkhttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${okHttpLoggingInterceptorVersion}"
+    libRetrofitAdapterRxJava = "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+
+    libGson = "com.google.code.gson:gson:${gsonVersion}"
+
+    libOkHttp = "com.squareup.okhttp3:okhttp:${okHttpVersion}"
+    libOkHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}"
 
     libDagger = "com.google.dagger:dagger:${daggerVersion}"
     libDaggerCompiler = "com.google.dagger:dagger-compiler:${daggerVersion}"
 
-    libCircleImageView = "de.hdodenhof:circleimageview:${circleImageViewVersion}"
+    libShapedImageView = "cn.gavinliu.android.lib:ShapedImageView:${shapedImageViewVersion}"
 
     libGlide = "com.github.bumptech.glide:glide:${glideVersion}"
-
-    libGuava = "com.google.guava:guava:${guavaVersion}"
+    libGlideOkhttp3Integration = "com.github.bumptech.glide:okhttp3-integration:${glideOkHttp3IntegrationVersion}"
 }
