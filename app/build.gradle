@@ -19,19 +19,12 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('D:/Android/keyStore/gavinxxxxxx.jks')
-            storePassword '994995'
-            keyAlias 'primary'
-            keyPassword '3721000'
+            storeFile file('x:/xxxxxx/xxxxxx.jks')
+            storePassword 'xxxxxx'
+            keyAlias 'xxxxxx'
+            keyPassword 'xxxxxx'
             v2SigningEnabled false
         }
-//        release {
-//            storeFile file('x:/xxxxxx/xxxxxx.jks')
-//            storePassword 'xxxxxx'
-//            keyAlias 'xxxxxx'
-//            keyPassword 'xxxxxx'
-//            v2SigningEnabled false
-//        }
     }
 
     buildTypes {
