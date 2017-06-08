@@ -1,45 +1,44 @@
 package gavin.primary.base;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
+import javax.inject.Inject;
+
+import gavin.primary.inject.component.ApplicationComponent;
+import gavin.primary.service.base.DataLayer;
+import io.reactivex.disposables.CompositeDisposable;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
- * Fragment基类
+ * Fragment 基类
  *
- * @author gavin.xiong 2017/2/28
+ * @author gavin.xiong 2016/12/30  2016/12/30
  */
-public abstract class BaseFragment<T extends ViewDataBinding> extends SupportFragment {
+public abstract class BaseFragment extends SupportFragment {
 
-    protected T binding;
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
-        return binding.getRoot();
-    }
+    @Inject
+    DataLayer mDataLayer;
+    @Inject
+    protected CompositeDisposable mCompositeDisposable;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        ApplicationComponent.Instance.get().inject(this);
         afterCreate(savedInstanceState);
     }
 
-    /**
-     * 提供布局资源id
-     */
-    protected abstract int getLayoutId();
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mCompositeDisposable.dispose();
+    }
 
-    /**
-     * 页面加载
-     */
+    public DataLayer getDataLayer() {
+        return mDataLayer;
+    }
+
     protected abstract void afterCreate(@Nullable Bundle savedInstanceState);
 
     /**
@@ -55,6 +54,5 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends SupportFra
     protected void dismissProgressDialog() {
         ((BaseActivity) _mActivity).dismissProgressDialog();
     }
+
 }
-
-

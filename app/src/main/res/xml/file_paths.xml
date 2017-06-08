@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path path="Android/data/gavin.primary/" name="files_root" />
+    <!--<external-path path="primary/cache/" name="files_root" />-->
+    <!--<external-path path="Pictures/" name="files_root" />-->
+    <!--<external-path path="." name="external_storage_root" />-->
+</paths>

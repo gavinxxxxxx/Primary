@@ -1,8 +1,9 @@
 package gavin.primary.base;
 
 /**
- * @author lsxiao
- * @date 2015-11-03 22:28
+ * BundleKey
+ *
+ * @author gavin.xiong 2017/6/8
  */
 public class BundleKey {
     /**
@@ -18,23 +19,11 @@ public class BundleKey {
      */
     public static final String ENTER_STATUS_ENABLE = "enterStatusEnable";
     /**
-     * 用户ID
+     * 主页跳转
      */
-    public static final String USER_ID = "userId";
+    public static final String MAIN_JUMP_TYPE = "mainJumpType";
     /**
-     * 用户
+     * 自顶获取焦点
      */
-    public static final String USER = "user";
-
-    public static final String STORY = "story";
-    public static final String TODAY_NEWS = "todayNews";
-    public static final String NEWS = "news";
-    public static final String THROWABLE = "throwable";
-    public static final String POSITION = "position";
-
-    public static final String NEWS_DETAIL_STORE = "newsDetailStore";
-    public static final String NEWS_LIST_STORE = "newsListStore";
-    public static final String LATEST_DATE = "latestDate";
-
-    public static final String NEWS_ID = "newsId";
+    public static final String AUTO_FOCUS = "autoFocus";
 }

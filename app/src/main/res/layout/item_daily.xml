@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="gavin.primary.app.demo.Daily.Story" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@color/colorBackgroundSecondary"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@{item.date}"
+            android:visibility="@{item.date == null ? View.GONE : View.VISIBLE}"
+            tools:text="2016-05-01"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin">
+
+            <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{item.imageUrls == null || item.imageUrls.empty ? @string/empty : item.imageUrls.get(0)}"
+                app:shape_mode="circle"
+                app:stroke_color="@android:color/white"
+                app:stroke_width="1dp"
+                tools:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:freezesText="true"
+                android:gravity="center_vertical|start"
+                android:lineSpacingMultiplier="1.2"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="2"
+                android:scrollHorizontally="true"
+                android:text="@{item.title}"
+                android:textColor="#99000000"
+                android:textSize="14sp"
+                tools:text="这就是理想主义，对彼此，对现实的妥协" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

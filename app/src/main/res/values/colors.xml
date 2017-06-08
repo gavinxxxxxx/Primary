@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <!--<color name="colorCover">#10000000</color>-->
-    <color name="colorCover">#00000000</color>
-    <color name="colorVector">#FFFFFF</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#0098E2</color>
+    <color name="colorSecondary">#FF3366</color>
+    <color name="colorCover">#10000000</color>
+    <color name="colorCoverSecondary">#20000000</color>
+    <color name="colorCoverTertiary">#40000000</color>
     <color name="colorBackground">#F0F0F0</color>
+    <color name="colorBackgroundSecondary">#E2E2E2</color>
+    <color name="colorDivider">#F0F0F0</color>
+    <color name="colorVector">#777777</color>
+    <color name="colorTitle">#555555</color>
+    <color name="textColorPrimary">#2C2C2C</color>
+    <color name="textColorSecondary">#777777</color>
+    <color name="textColorTertiary">#AAAAAA</color>
+
+    <!-- 图片占位色 -->
+    <color name="colorHolder00">#FFEBEE</color>
+    <color name="colorHolder01">#FFF3E0</color>
+    <color name="colorHolder02">#FFFDE7</color>
+    <color name="colorHolder03">#E8F5E9</color>
+    <color name="colorHolder04">#E0F7FA</color>
+    <color name="colorHolder05">#E3F2FD</color>
+    <color name="colorHolder06">#F3E5F5</color>
+    <!--<color name="colorHolder07">#FAFAFA</color>-->
 </resources>

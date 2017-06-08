@@ -1,29 +1,52 @@
 package gavin.primary.base;
 
 import android.app.ProgressDialog;
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
 
+import javax.inject.Inject;
+
+import gavin.primary.inject.component.ApplicationComponent;
+import gavin.primary.service.base.DataLayer;
+import io.reactivex.disposables.CompositeDisposable;
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
-public abstract class BaseActivity<T extends ViewDataBinding> extends SupportActivity {
+/**
+ * Activity 基类
+ *
+ * @author gavin.xiong 2016/12/30  2016/12/30
+ */
+public abstract class BaseActivity extends SupportActivity {
 
-    protected T binding;
+    @Inject
+    DataLayer mDataLayer;
 
-    private ProgressDialog progressDialog;
+    @Inject
+    protected CompositeDisposable mCompositeDisposable;
+
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 兼容vector
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-        binding = DataBindingUtil.setContentView(this, getLayoutId());
+        setContentView();
+        ApplicationComponent.Instance.get().inject(this);
         afterCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mCompositeDisposable.dispose();
+    }
+
+    public DataLayer getDataLayer() {
+        return mDataLayer;
     }
 
     @Override
@@ -31,36 +54,30 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends SupportAct
         return new DefaultNoAnimator();
     }
 
-    /**
-     * 提供布局资源id
-     */
-    protected abstract int getLayoutId();
-
-    /**
-     * 页面加载
-     */
     protected abstract void afterCreate(@Nullable Bundle savedInstanceState);
+
+
+    public abstract void setContentView();
 
     /**
      * 显示进度对话框
      */
     public void showProgressDialog() {
-        if (progressDialog == null) {
-            progressDialog = new ProgressDialog(this);
-            progressDialog.setMessage("请稍候...");
-            progressDialog.setCanceledOnTouchOutside(false);
-            progressDialog.setCancelable(true);
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage("请稍候...");
+            mProgressDialog.setCanceledOnTouchOutside(false);
+            mProgressDialog.setCancelable(true);
         }
-        progressDialog.show();
+        mProgressDialog.show();
     }
 
     /**
      * 关闭对话框
      */
     public void dismissProgressDialog() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.dismiss();
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
         }
     }
-
 }
