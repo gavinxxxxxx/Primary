@@ -16,12 +16,12 @@ def glideOkHttp3IntegrationVersion = "1.4.0@aar"
 
 ext {
     applicationId = "gavin.primary"
-    buildToolsVersion = "25.0.3"
-    compileSdkVersion = 25
+    buildToolsVersion = "26.0.0"
+    compileSdkVersion = 26
     minSdkVersion = 16
-    targetSdkVersion = 25
-    versionCode = 200
-    versionName = "2.0.0"
+    targetSdkVersion = 26
+    versionCode = 1
+    versionName = "0.0.1"
     resConfigs = "zh" // 只保留中文
 
 
