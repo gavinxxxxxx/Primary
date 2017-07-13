@@ -6,6 +6,7 @@ import android.view.View;
 
 import javax.inject.Inject;
 
+import gavin.primary.app.demo.BaseViewModel;
 import gavin.primary.inject.component.ApplicationComponent;
 import gavin.primary.service.base.DataLayer;
 import io.reactivex.disposables.CompositeDisposable;
@@ -23,6 +24,8 @@ public abstract class BaseFragment extends SupportFragment {
     @Inject
     protected CompositeDisposable mCompositeDisposable;
 
+    protected BaseViewModel viewModel;
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         ApplicationComponent.Instance.get().inject(this);
@@ -33,6 +36,9 @@ public abstract class BaseFragment extends SupportFragment {
     public void onDestroyView() {
         super.onDestroyView();
         mCompositeDisposable.dispose();
+        if (viewModel != null && !viewModel.isDisposed()) {
+            viewModel.dispose();
+        }
     }
 
     public DataLayer getDataLayer() {

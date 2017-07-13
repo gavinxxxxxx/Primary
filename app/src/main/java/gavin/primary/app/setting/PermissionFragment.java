@@ -11,6 +11,7 @@ import android.support.design.widget.Snackbar;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import gavin.primary.R;
+import gavin.primary.app.demo.BaseViewModel;
 import gavin.primary.app.demo.DailyFragment;
 import gavin.primary.base.BindingFragment;
 import gavin.primary.base.RequestCode;
@@ -34,6 +35,11 @@ public class PermissionFragment extends BindingFragment<LayoutBlankBinding> {
     @Override
     protected int getLayoutId() {
         return R.layout.layout_blank;
+    }
+
+    @Override
+    protected BaseViewModel getViewModel() {
+        return null;
     }
 
     @Override

@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import gavin.primary.BR;
+import gavin.primary.app.demo.BaseViewModel;
+
 /**
  * 这里是萌萌哒注释君
  *
@@ -21,8 +24,12 @@ public abstract class BindingFragment<T extends ViewDataBinding> extends BaseFra
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
+        viewModel = getViewModel();
+        binding.setVariable(BR.viewModel, viewModel);
         return binding.getRoot();
     }
+
+    protected abstract BaseViewModel getViewModel();
 
     protected abstract int getLayoutId();
 }

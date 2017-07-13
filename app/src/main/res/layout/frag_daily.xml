@@ -45,8 +45,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/vt_menu_24dp"
                     app:popupTheme="@style/AppTheme.PopupOverlay"
-                    app:theme="@style/ToolbarLightOverflow" />
+                    app:theme="@style/ToolbarLightOverflow"
+                    app:title="@string/app_name" />
 
             </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -56,7 +58,10 @@
             android:id="@+id/refreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            app:colorSchemeColors="@{@intArray/colorScheme}"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:onRefreshListener="@{viewModel}"
+            app:refreshing="@{viewModel.refreshing}">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -64,18 +69,22 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvEntity"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:visibility="gone"
-                    tools:text="空空如也" />
+                    android:gravity="center_horizontal"
+                    android:paddingTop="@dimen/list_empty_top_margin"
+                    android:text="@{viewModel.text}"
+                    android:visibility="@{viewModel.text != null ? 0 : 8}"
+                    tools:text="空空如也"
+                    tools:visibility="visible" />
 
-                <gavin.primary.widget.AutoLoadRecyclerView
+                <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:layoutManager="LinearLayoutManager" />
+                    app:adapter="@{viewModel.adapter}"
+                    app:layoutManager="LinearLayoutManager"
+                    app:onScrollListener="@{viewModel.onScrollListener}" />
 
             </LinearLayout>
 

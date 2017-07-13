@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import gavin.primary.app.demo.BaseViewModel;
 import gavin.primary.base.BaseActivity;
 import gavin.primary.base.BaseBottomSheetDialog;
 import gavin.primary.base.BaseFragment;
@@ -25,9 +26,11 @@ public interface ApplicationComponent {
 
     void inject(BaseFragment fragment);
 
-    void inject(BaseBottomSheetDialog dialogFragment);
+    void inject(BaseBottomSheetDialog dialog);
 
     void inject(BaseManager manager);
+
+    void inject(BaseViewModel viewModel);
 
     // 可以获取 ApplicationModule 及其 includes 的所有 Module 提供的对象（方法名随意）
     Application getApplication();
