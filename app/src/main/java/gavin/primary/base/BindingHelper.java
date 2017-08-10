@@ -1,6 +1,12 @@
 package gavin.primary.base;
 
 import android.databinding.BindingAdapter;
+import android.databinding.BindingConversion;
+import android.databinding.BindingMethod;
+import android.databinding.BindingMethods;
+import android.databinding.InverseBindingMethod;
+import android.databinding.InverseBindingMethods;
+import android.graphics.drawable.ColorDrawable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,7 +16,27 @@ import gavin.primary.R;
 import gavin.primary.util.DateUtil;
 import gavin.primary.util.ImageLoader;
 
+//@BindingMethods({ // 使用 BindingMethod 指定属性的绑定方法
+//        @BindingMethod(
+//                type = android.widget.ImageView.class,
+//                attribute = "android:tint",
+//                method = "setImageTintList")
+//})
+
+//@InverseBindingMethods({ // 使用 InverseBindingMethod 实现动态更新
+//        @InverseBindingMethod(
+//                type = android.widget.TextView.class,
+//                attribute = "android:text",
+//                method = "getText",                   // 默认会根据attribute name获取get
+//                event = "android:textAttrChanged")})  // 默认根据attribute增加AttrChanged
+
 public class BindingHelper {
+
+//    @BindingConversion // 使用 BindingConversion 转换绑定属性
+//    public static ColorDrawable convertColorToDrawable(int color) {
+//        return new ColorDrawable(color);
+//    }
+
     /**
      * 使用DataBinding来加载图片
      * 使用@BindingAdapter注解，注解值（这里的imageUrl）可任取，注解值将成为自定义属性

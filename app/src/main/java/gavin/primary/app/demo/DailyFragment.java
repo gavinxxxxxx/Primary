@@ -10,7 +10,6 @@ import gavin.primary.databinding.FragDailyBinding;
 
 /**
  * 知乎日报 - 列表
- * frag_daily.xml
  *
  * @author gavin.xiong 2017/4/26
  */

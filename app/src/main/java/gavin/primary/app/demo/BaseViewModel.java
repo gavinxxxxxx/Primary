@@ -36,6 +36,17 @@ public abstract class BaseViewModel extends BaseObservable implements Disposable
 
         init();
         getData();
+
+//        addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
+//            @Override
+//            public void onPropertyChanged(Observable sender, int id) {
+//                if (id == BR.item) {
+//
+//                } else if (id == BR.text) {
+//
+//                }
+//            }
+//        });
     }
 
     public DataLayer getDataLayer() {
