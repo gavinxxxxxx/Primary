@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:itemIconTint="@android:color/holo_orange_light">
+
+    <group
+        android:id="@+id/group_action_layout"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/vt_daily"
+            android:title="知乎日报" />
+        <item
+            android:id="@+id/nav_gank"
+            android:icon="@drawable/vt_gank"
+            android:title="Gank妹子" />
+        <item
+            android:id="@+id/nav_collection"
+            android:icon="@drawable/vt_turned_in_not_24dp"
+            android:title="我的收藏" />
+    </group>
+
+    <group>
+        <item
+            android:id="@+id/nav_license"
+            android:title="开源许可"
+            android:visible="false" />
+        <item
+            android:id="@+id/nav_about"
+            android:title="关于" />
+        <item
+            android:id="@+id/nav_test"
+            android:title="测试"
+            android:visible="false" />
+    </group>
+
+</menu>

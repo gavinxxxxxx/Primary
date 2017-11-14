@@ -1,27 +1,29 @@
-def supportVersion = "25.3.1"
+def supportVersion = "26.0.0-alpha1"
 
-def fragmentationVersion = "0.10.3"
-def fragmentationSwipeBackVersion = "0.7.9"
-def rxJavaVersion = "2.0.9"
+def fragmentationVersion = "1.1.0"
+def rxJavaVersion = "2.1.2"
 def rxAndroidVersion = "2.0.1"
 def rxPermissionsVersion = "0.9.4@aar"
-def retrofitVersion = "2.2.0"
-def gsonVersion = "2.8.0"
-def okHttpVersion = "3.6.0"
-def daggerVersion = "2.10"
+def retrofitVersion = "2.3.0"
+def gsonVersion = "2.8.1"
+def okHttpVersion = "3.8.1"
+def daggerVersion = "2.11"
 def shapedImageViewVersion = "0.8.4"
-def glideVersion = "3.7.0"
-def glideOkHttp3IntegrationVersion = "1.4.0@aar"
+def glideVersion = "3.8.0"
+def glideOkhttp3IntegrationVersion = "1.5.0@aar"
+//def glideVersion = "4.0.0"
+//def glideOkhttp3IntegrationVersion = "4.0.0"
+def photoViewVersion = "2.0.0"
+def guavaVersion = "22.0-android"
+def greenDaoVersion = "3.2.2"
 
 
 ext {
-    applicationId = "gavin.primary"
-    buildToolsVersion = "26.0.0"
+    applicationId = "me.gavin.primary"
     compileSdkVersion = 26
-    minSdkVersion = 16
+    buildToolsVersion = "26.0.2"
+    minSdkVersion = 21
     targetSdkVersion = 26
-    versionCode = 1
-    versionName = "0.0.1"
     resConfigs = "zh" // 只保留中文
 
 
@@ -36,7 +38,7 @@ ext {
     libSupportPercent = "com.android.support:percent:${supportVersion}"
 
     libFragmentation = "me.yokeyword:fragmentation:${fragmentationVersion}"
-    libFragmentationSwipeBack = "me.yokeyword:fragmentation-swipeback:${fragmentationSwipeBackVersion}"
+    libFragmentationSwipeBack = "me.yokeyword:fragmentation-swipeback:${fragmentationVersion}"
 
     libRxJava = "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
     libRxAndroid = "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
@@ -57,5 +59,12 @@ ext {
     libShapedImageView = "cn.gavinliu.android.lib:ShapedImageView:${shapedImageViewVersion}"
 
     libGlide = "com.github.bumptech.glide:glide:${glideVersion}"
-    libGlideOkhttp3Integration = "com.github.bumptech.glide:okhttp3-integration:${glideOkHttp3IntegrationVersion}"
+    libGlideOkhttp3Integration = "com.github.bumptech.glide:okhttp3-integration:${glideOkhttp3IntegrationVersion}"
+
+    libPhotoView = "com.github.chrisbanes:PhotoView:${photoViewVersion}"
+
+    libGuava = "com.google.guava:guava:${guavaVersion}"
+
+    libGreenDao = "org.greenrobot:greendao:${greenDaoVersion}"
+
 }

@@ -5,26 +5,27 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
-            name="viewModel"
-            type="gavin.primary.app.demo.DailyViewModel" />
+            name="vm"
+            type="me.gavin.primary.base.recycler.PagingViewModel" />
+
     </data>
 
     <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        app:msg="@{vm.msg}">
 
         <android.support.design.widget.AppBarLayout
-            android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
@@ -32,8 +33,8 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
                 app:titleEnabled="false">
 
-                <gavin.primary.widget.banner.BannerView
-                    android:id="@+id/banner"
+                <FrameLayout
+                    android:id="@+id/bannerHolder"
                     android:layout_width="match_parent"
                     android:layout_height="256dp"
                     android:fitsSystemWindows="true"
@@ -55,13 +56,12 @@
         </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/refreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:colorSchemeColors="@{@intArray/colorScheme}"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:onRefreshListener="@{viewModel}"
-            app:refreshing="@{viewModel.refreshing}">
+            app:onRefreshListener="@{vm}"
+            app:refreshing="@{vm.loading}">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,18 +73,18 @@
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal"
                     android:paddingTop="@dimen/list_empty_top_margin"
-                    android:text="@{viewModel.text}"
-                    android:visibility="@{viewModel.text != null ? 0 : 8}"
+                    android:text="@{vm.error ? @string/label_loading_error : @string/label_loading_empty }"
+                    android:visibility="@{vm.empty || vm.error ? View.VISIBLE : View.GONE}"
                     tools:text="空空如也"
                     tools:visibility="visible" />
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:adapter="@{viewModel.adapter}"
+                    app:adapter="@{vm.adapter}"
                     app:layoutManager="LinearLayoutManager"
-                    app:onScrollListener="@{viewModel.onScrollListener}" />
+                    app:onScrollListener="@{vm.onScrollListener}"
+                    tools:listitem="@layout/item_daily" />
 
             </LinearLayout>
 

@@ -1,13 +1,12 @@
 <resources>
-    <string name="app_name">元元</string>
 
-    <string name="empty"> </string>
-    <string name="blank">&#160;</string>
-    <string name="line_vertical">|</string>
+    <string name="app_name">Primary</string>
 
     <!-- 下拉刷新 -->
     <string name="label_loading_idle">发呆中&#46;&#46;&#46;</string>
     <string name="label_loading_loading">加载中&#46;&#46;&#46;</string>
-    <string name="label_loading_no_more">再也没有了</string>
+    <string name="label_loading_empty">什么都没有</string>
+    <string name="label_loading_period">再也没有了&#46;&#46;&#46;</string>
     <string name="label_loading_error">玩坏了&#46;&#46;&#46;</string>
+
 </resources>

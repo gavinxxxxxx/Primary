@@ -1,6 +1,5 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -12,6 +11,8 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -36,15 +37,6 @@
         <item name="colorSwitchThumbNormal">#f0f0f0</item>
         <!-- inactive track color (30% transparency) -->
         <item name="android:colorForeground">@android:color/darker_gray</item>
-    </style>
-
-    <style name="TextLabel" parent="Widget.Design.TextInputLayout">
-        <!-- Hint color and label color in FALSE state -->
-        <item name="android:textColorHint">@android:color/tertiary_text_light</item>
-        <item name="android:textSize">14sp</item>
-        <item name="colorAccent">@color/colorSecondary</item>
-        <item name="colorControlNormal">#ffdddddd</item>
-        <item name="colorControlActivated">@color/colorSecondary</item>
     </style>
 
 </resources>

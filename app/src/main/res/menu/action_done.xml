@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/actionView"
+        android:icon="@drawable/vt_visibility_24dp"
+        android:title="预览"
+        android:visible="false"
+        app:showAsAction="ifRoom"
+        tools:visible="true" />
+
+    <item
+        android:id="@+id/actionDone"
+        android:icon="@drawable/vt_done_24dp"
+        android:title="完成"
+        app:showAsAction="ifRoom" />
+
+</menu>

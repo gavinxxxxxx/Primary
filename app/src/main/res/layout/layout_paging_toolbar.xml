@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="me.gavin.primary.base.recycler.PagingViewModel" />
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/includeToolbar"
+                layout="@layout/layout_toolbar" />
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="@{vm.refreshable}"
+                app:colorSchemeColors="@{@intArray/colorScheme}"
+                app:onRefreshListener="@{vm}"
+                app:refreshing="@{vm.loading}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="@dimen/list_empty_top_margin"
+                        android:text="@{vm.error ? @string/label_loading_error : @string/label_loading_empty }"
+                        android:visibility="@{vm.empty || vm.error ? View.VISIBLE : View.GONE}"
+                        tools:text="空空如也"
+                        tools:visibility="visible" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipToPadding="false"
+                        android:padding="4dp"
+                        app:adapter="@{vm.adapter}"
+                        app:layoutManager="StaggeredGridLayoutManager"
+                        app:onScrollListener="@{vm.onScrollListener}"
+                        app:spanCount="2" />
+
+                </LinearLayout>
+
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+        </LinearLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

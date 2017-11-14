@@ -1,32 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="me.gavin.primary.base.recycler.FooterViewModel" />
+
+    </data>
+
     <LinearLayout
-        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:visibility="gone"
-        tools:visibility="visible">
+        android:visibility="@{vm.empty ? View.GONE : View.VISIBLE}"
+        app:height="@{vm.vertical ? -2 : -1}">
 
         <ProgressBar
-            android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp" />
+            android:visibility="@{vm.vertical &amp;&amp; vm.loading ? View.VISIBLE : View.GONE}" />
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
             android:gravity="center"
-            android:text="@string/label_loading_loading"
-            android:textSize="12sp" />
+            android:text="@{vm.msg}"
+            android:textSize="12sp"
+            android:visibility="@{vm.vertical || !vm.loading ? View.VISIBLE : View.GONE}"
+            tools:text="加载中..." />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:visibility="@{!vm.vertical &amp;&amp; vm.loading ? View.VISIBLE : View.GONE}" />
 
     </LinearLayout>
 
