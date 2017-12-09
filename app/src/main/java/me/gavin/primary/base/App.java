@@ -2,6 +2,7 @@ package me.gavin.primary.base;
 
 import android.app.Application;
 
+import me.gavin.primary.db.util.DbCore;
 import me.gavin.primary.inject.component.ApplicationComponent;
 import me.gavin.primary.inject.component.DaggerApplicationComponent;
 import me.gavin.primary.inject.module.ApplicationModule;
@@ -17,6 +18,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         initDagger();
+        DbCore.init(this);
     }
 
     private void initDagger() {
