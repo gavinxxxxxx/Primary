@@ -30,7 +30,7 @@ android {
             storePassword STORE_PASSWORD
             keyAlias KEY_ALIAS
             keyPassword KEY_PASSWORD
-            v2SigningEnabled false
+            v2SigningEnabled true
         }
     }
 
@@ -88,7 +88,7 @@ android {
 andResGuard {
     // @link{https://github.com/shwenzhang/AndResGuard/blob/master/README.zh-cn.md}
     mappingFile = null
-    use7zip = true
+    use7zip = false
     useSign = true
     keepRoot = false
     whiteList = [
@@ -102,22 +102,23 @@ andResGuard {
             "resources.arsc"
     ]
     sevenzip {
-        artifact = 'com.tencent.mm:SevenZip:1.2.7'
+        artifact = 'com.tencent.mm:SevenZip:1.2.10'
     }
     // v2签名会使得7zip压缩失效，如果你对apk大小有极致的要求，可以在signingConfigs中关闭v2签名
     // gradlew resguardRelease
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
-    compile rootProject.ext.libSupportAppcompat
-    compile rootProject.ext.libSupportDesign
-    compile rootProject.ext.libSupportRecyclerView
-    compile rootProject.ext.libSupportCardView
+
+    implementation rootProject.ext.libSupportAppcompat
+    implementation rootProject.ext.libSupportDesign
+    implementation rootProject.ext.libSupportRecyclerView
+    implementation rootProject.ext.libSupportCardView
     //    compile rootProject.ext.libSupportGridLayout
     //    compile rootProject.ext.libSupportVectorDrawable
     //    compile rootProject.ext.libSupportPalette
@@ -125,30 +126,30 @@ dependencies {
 
     //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    compile rootProject.ext.libFragmentation
+    implementation rootProject.ext.libFragmentation
 
-    compile rootProject.ext.libRxJava
-    compile rootProject.ext.libRxAndroid
-    compile rootProject.ext.libRxPermissions
+    implementation rootProject.ext.libRxJava
+    implementation rootProject.ext.libRxAndroid
+    implementation rootProject.ext.libRxPermissions
 
-    compile rootProject.ext.libRetrofit
-    compile rootProject.ext.libRetrofitConverterGson
-    compile rootProject.ext.libRetrofitAdapterRxJava
+    implementation rootProject.ext.libRetrofit
+    implementation rootProject.ext.libRetrofitConverterGson
+    implementation rootProject.ext.libRetrofitAdapterRxJava
 
-    compile rootProject.ext.libGson
+    implementation rootProject.ext.libGson
 
-    compile rootProject.ext.libOkHttp
-    compile rootProject.ext.libOkHttpLoggingInterceptor
+    implementation rootProject.ext.libOkHttp
+    implementation rootProject.ext.libOkHttpLoggingInterceptor
 
-    compile rootProject.ext.libDagger
+    implementation rootProject.ext.libDagger
     annotationProcessor rootProject.ext.libDaggerCompiler
 
-    compile rootProject.ext.libShapedImageView
+    implementation rootProject.ext.libShapedImageView
 
-    compile rootProject.ext.libGlide
-    compile rootProject.ext.libGlideOkhttp3Integration
+    implementation rootProject.ext.libGlide
+    implementation rootProject.ext.libGlideOkhttp3Integration
 
-    compile rootProject.ext.libPhotoView
+    implementation rootProject.ext.libPhotoView
 
-    compile rootProject.ext.libGreenDao
+    implementation rootProject.ext.libGreenDao
 }
