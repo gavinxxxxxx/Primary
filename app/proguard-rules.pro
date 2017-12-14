@@ -21,9 +21,9 @@
 # 保持 Serializable 不被混淆 并且enum 类也不被混淆
 #-keep class * implements java.io.Serializable {*;}
 # ----------------------------------------------------------------------------
--keep class me.gavin.primary.app.collection.Collection { *; }
--keep class me.gavin.primary.app.common.Image { *; }
--keep class me.gavin.primary.app.setting.License { *; }
+-keep class me.gavin.app.collection.Collection { *; }
+-keep class me.gavin.app.common.Image { *; }
+-keep class me.gavin.app.setting.License { *; }
 # ----------------------------------------------------------------------------
 # SearchView
 -keep class android.support.v7.widget.SearchView {*;}

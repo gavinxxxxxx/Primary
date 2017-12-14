@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="me.gavin.primary.app.setting.License" />
+            type="me.gavin.app.setting.License" />
 
     </data>
 

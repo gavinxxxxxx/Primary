@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".base.App"
+        android:name="me.gavin.base.App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
         <activity
-            android:name=".app.main.MainActivity"
+            android:name="me.gavin.app.main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
 
         <!-- 使用 okhttp3 加载图片 -->
         <meta-data
-            android:name="me.gavin.primary.util.glide.GlideQualityModule"
+            android:name="me.gavin.util.glide.GlideQualityModule"
             android:value="GlideModule" />
         <!-- Android N 更新 FileUriExposedException -->
         <provider

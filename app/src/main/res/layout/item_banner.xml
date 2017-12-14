@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="me.gavin.primary.app.common.banner.BannerModel" />
+            type="me.gavin.app.common.banner.BannerModel" />
 
     </data>
 

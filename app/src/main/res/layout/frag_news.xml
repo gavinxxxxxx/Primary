@@ -9,7 +9,7 @@
 
         <variable
             name="vm"
-            type="me.gavin.primary.app.daily.NewsViewModel" />
+            type="me.gavin.app.daily.NewsViewModel" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout

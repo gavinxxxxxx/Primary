@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="me.gavin.primary.base.recycler.PagingViewModel" />
+            type="me.gavin.base.recycler.PagingViewModel" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout

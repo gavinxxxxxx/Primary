@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="me.gavin.primary.app.common.banner.BannerViewModel" />
+            type="me.gavin.app.common.banner.BannerViewModel" />
     </data>
 
     <FrameLayout

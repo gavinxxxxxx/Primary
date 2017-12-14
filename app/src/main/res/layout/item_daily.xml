@@ -9,7 +9,7 @@
 
         <variable
             name="item"
-            type="me.gavin.primary.app.daily.Daily.Story" />
+            type="me.gavin.app.daily.Daily.Story" />
 
     </data>
 

@@ -9,7 +9,7 @@
 
         <variable
             name="vm"
-            type="me.gavin.primary.base.recycler.FooterViewModel" />
+            type="me.gavin.base.recycler.FooterViewModel" />
 
     </data>
 

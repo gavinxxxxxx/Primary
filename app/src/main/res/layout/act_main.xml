@@ -10,7 +10,7 @@
         android:fitsSystemWindows="true"
         tools:openDrawer="start">
 
-        <me.gavin.primary.widget.WindowInsetsFrameLayout
+        <me.gavin.widget.WindowInsetsFrameLayout
             android:id="@+id/holder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
