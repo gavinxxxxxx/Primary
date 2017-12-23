@@ -33,7 +33,7 @@ public class BindingHeaderFooterAdapter<T> extends RecyclerHeaderFooterAdapter<T
         holder.binding.setVariable(BR.item, t);
         holder.binding.executePendingBindings();
         if (mListener != null) {
-            holder.itemView.findViewById(R.id.item).setOnClickListener((v) -> mListener.accept(position));
+            holder.itemView.findViewById(R.id.item).setOnClickListener(v -> mListener.accept(position));
         }
     }
 
