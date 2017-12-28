@@ -20,7 +20,7 @@ import me.gavin.primary.databinding.FooterLoadingBinding;
  *
  * @author gavin.xiong 2017/7/11
  */
-public abstract class PagingViewModel<T, A extends RecyclerHeaderFooterAdapter>
+public abstract class PagingViewModel<T, A extends RecyclerHFAdapter>
         extends FragViewModel<BaseFragment, ViewDataBinding> implements SwipeRefreshLayout.OnRefreshListener {
 
     public final ObservableBoolean refreshable = new ObservableBoolean(true);
@@ -58,7 +58,7 @@ public abstract class PagingViewModel<T, A extends RecyclerHeaderFooterAdapter>
         mFooterViewModel = new FooterViewModel(mContext.get());
         mFooterViewModel.afterCreate();
         loadingBinding.setVm(mFooterViewModel);
-        adapter.setFooterBinding(loadingBinding);
+        adapter.addFooter(loadingBinding);
     }
 
     /**

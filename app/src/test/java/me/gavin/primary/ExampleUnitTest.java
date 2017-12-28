@@ -35,4 +35,11 @@ public class ExampleUnitTest {
         System.out.println("??? : " + str);
     }
 
+    @Test
+    public void integer() {
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MAX_VALUE + 1);
+        System.out.println(Integer.MAX_VALUE +2);
+    }
+
 }

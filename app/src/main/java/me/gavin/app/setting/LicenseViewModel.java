@@ -7,7 +7,7 @@ import android.net.Uri;
 
 import me.gavin.primary.R;
 import me.gavin.base.BaseFragment;
-import me.gavin.base.recycler.BindingHeaderFooterAdapter;
+import me.gavin.base.recycler.BindingHFAdapter;
 import me.gavin.base.recycler.PagingViewModel;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -17,7 +17,7 @@ import io.reactivex.schedulers.Schedulers;
  *
  * @author gavin.xiong 2017/8/14
  */
-class LicenseViewModel extends PagingViewModel<License, BindingHeaderFooterAdapter<License>> {
+class LicenseViewModel extends PagingViewModel<License, BindingHFAdapter<License>> {
 
     LicenseViewModel(Context context, BaseFragment fragment, ViewDataBinding binding) {
         super(context, fragment, binding);
@@ -26,7 +26,7 @@ class LicenseViewModel extends PagingViewModel<License, BindingHeaderFooterAdapt
 
     @Override
     protected void initAdapter() {
-        adapter = new BindingHeaderFooterAdapter<>(mContext.get(), mList, R.layout.item_license);
+        adapter = new BindingHFAdapter<>(mContext.get(), mList, R.layout.item_license);
         adapter.setOnItemClickListener(position -> {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);

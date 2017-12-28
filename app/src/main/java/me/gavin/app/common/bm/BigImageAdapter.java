@@ -10,12 +10,12 @@ import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import java.lang.reflect.Field;
 import java.util.List;
 
-import me.gavin.primary.R;
 import me.gavin.app.common.Image;
 import me.gavin.base.BaseFragment;
 import me.gavin.base.RxBus;
-import me.gavin.base.recycler.RecyclerHeaderFooterAdapter;
+import me.gavin.base.recycler.RecyclerHFAdapter;
 import me.gavin.base.recycler.RecyclerHolder;
+import me.gavin.primary.R;
 import me.gavin.primary.databinding.ItemBigImageBinding;
 import me.gavin.util.L;
 
@@ -24,7 +24,7 @@ import me.gavin.util.L;
  *
  * @author gavin.xiong 2017/5/17
  */
-class BigImageAdapter extends RecyclerHeaderFooterAdapter<Image, ItemBigImageBinding> {
+class BigImageAdapter extends RecyclerHFAdapter<Image, ItemBigImageBinding> {
 
     private BaseFragment fragment;
     private int requestCode;

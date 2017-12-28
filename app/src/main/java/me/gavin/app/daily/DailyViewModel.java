@@ -2,6 +2,7 @@ package me.gavin.app.daily;
 
 import android.content.Context;
 import android.databinding.ViewDataBinding;
+import android.view.LayoutInflater;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -12,7 +13,7 @@ import me.gavin.app.common.banner.BannerModel;
 import me.gavin.app.main.StartFragmentEvent;
 import me.gavin.base.BaseFragment;
 import me.gavin.base.RxBus;
-import me.gavin.base.recycler.BindingHeaderFooterAdapter;
+import me.gavin.base.recycler.BindingHFAdapter;
 import me.gavin.base.recycler.PagingViewModel;
 import me.gavin.util.L;
 import io.reactivex.Observable;
@@ -24,7 +25,7 @@ import io.reactivex.schedulers.Schedulers;
  *
  * @author gavin.xiong 2017/8/11
  */
-public class DailyViewModel extends PagingViewModel<Daily.Story, BindingHeaderFooterAdapter<Daily.Story>> {
+public class DailyViewModel extends PagingViewModel<Daily.Story, BindingHFAdapter<Daily.Story>> {
 
     private int mBannerType;
 
@@ -35,7 +36,7 @@ public class DailyViewModel extends PagingViewModel<Daily.Story, BindingHeaderFo
 
     @Override
     protected void initAdapter() {
-        adapter = new BindingHeaderFooterAdapter<>(mContext.get(), mList, R.layout.item_daily);
+        adapter = new BindingHFAdapter<>(mContext.get(), mList, R.layout.item_daily);
         adapter.setOnItemClickListener(i ->
                 RxBus.get().post(new StartFragmentEvent(NewsFragment.newInstance(mList.get(i).getId()))));
     }

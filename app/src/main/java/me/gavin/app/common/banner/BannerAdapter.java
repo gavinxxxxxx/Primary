@@ -4,13 +4,13 @@ import android.content.Context;
 
 import java.util.List;
 
+import me.gavin.app.daily.Daily;
 import me.gavin.app.daily.NewsFragment;
 import me.gavin.app.main.StartFragmentEvent;
-import me.gavin.primary.R;
-import me.gavin.app.daily.Daily;
 import me.gavin.base.RxBus;
 import me.gavin.base.recycler.RecyclerAdapter;
 import me.gavin.base.recycler.RecyclerHolder;
+import me.gavin.primary.R;
 import me.gavin.primary.databinding.ItemBannerBinding;
 
 /**
@@ -25,7 +25,7 @@ public class BannerAdapter<T> extends RecyclerAdapter<BannerModel<T>, ItemBanner
     }
 
     @Override
-    protected void onBind(RecyclerHolder<ItemBannerBinding> holder, BannerModel<T> t, final int position) {
+    protected void onBind(RecyclerHolder<ItemBannerBinding> holder, int position, BannerModel<T> t) {
         holder.binding.setItem(t);
         holder.binding.executePendingBindings();
         holder.binding.imageView.setOnClickListener(v ->
@@ -34,15 +34,14 @@ public class BannerAdapter<T> extends RecyclerAdapter<BannerModel<T>, ItemBanner
 
     @Override
     public void onBindViewHolder(RecyclerHolder<ItemBannerBinding> holder, int position) {
-        if (mList == null || mList.isEmpty()) return;
+        if (mList.isEmpty()) return;
         final int realPosition = position % mList.size();
-        final BannerModel<T> t = mList.get(realPosition);
-        onBind(holder, t, realPosition);
+        onBind(holder, realPosition, mList.get(realPosition));
     }
 
     @Override
     public int getItemCount() {
-        return mList == null ? 0 : Integer.MAX_VALUE;
+        return Integer.MAX_VALUE;
     }
 
 }

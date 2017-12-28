@@ -5,10 +5,10 @@ import android.support.v4.app.Fragment;
 
 import java.util.List;
 
-import me.gavin.primary.R;
 import me.gavin.base.function.IntConsumer;
-import me.gavin.base.recycler.RecyclerHeaderFooterAdapter;
+import me.gavin.base.recycler.RecyclerHFAdapter;
 import me.gavin.base.recycler.RecyclerHolder;
+import me.gavin.primary.R;
 import me.gavin.primary.databinding.ItemImageBinding;
 import me.gavin.util.DisplayUtil;
 import me.gavin.util.ImageLoader;
@@ -18,7 +18,7 @@ import me.gavin.util.ImageLoader;
  *
  * @author gavin.xiong 2016/12/28
  */
-public class ImageAdapter extends RecyclerHeaderFooterAdapter<Image, ItemImageBinding> {
+public class ImageAdapter extends RecyclerHFAdapter<Image, ItemImageBinding> {
 
     private Fragment mFragment;
     private int mWidth;
