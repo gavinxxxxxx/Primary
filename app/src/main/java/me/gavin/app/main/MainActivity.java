@@ -23,6 +23,7 @@ import me.gavin.base.BindingActivity;
 import me.gavin.base.RxBus;
 import me.gavin.primary.R;
 import me.gavin.primary.databinding.ActMainBinding;
+import me.gavin.test.TestFragment;
 import me.yokeyword.fragmentation.SupportFragment;
 
 public class MainActivity extends BindingActivity<ActMainBinding>
@@ -41,7 +42,7 @@ public class MainActivity extends BindingActivity<ActMainBinding>
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
         if (savedInstanceState == null) {
-            loadRootFragment(R.id.holder, DailyFragment.newInstance());
+            loadRootFragment(R.id.holder, TestFragment.newInstance());
         }
 
         subscribeEvent();

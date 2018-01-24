@@ -2,7 +2,9 @@ package me.gavin.test;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,11 +53,21 @@ public class TestViewModel extends FragViewModel<TestFragment, TestLayoutBinding
             TestHeaderFooterBinding f = TestHeaderFooterBinding.inflate(LayoutInflater.from(mContext.get()));
             adapter.addFooter(f);
         }
+
+        mBinding.get().recycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                View child = recyclerView.getLayoutManager().getChildAt(0);
+                int position = recyclerView.getLayoutManager().getPosition(child);
+                mBinding.get().textView.setVisibility(position > 0
+                        || child.getBottom() <= mBinding.get().textView.getHeight() ? View.VISIBLE : View.INVISIBLE);
+            }
+        });
     }
 
     public static class Adapter extends RecyclerHFAdapter<String, TestItemBinding> {
 
-        public Adapter(Context context, @NonNull List<String> list) {
+        Adapter(Context context, @NonNull List<String> list) {
             super(context, list, R.layout.test_item);
         }
 

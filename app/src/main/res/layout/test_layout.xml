@@ -13,12 +13,30 @@
 
     </data>
 
-    <android.support.v7.widget.RecyclerView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:adapter="@{vm.adapter}"
-        app:layoutManager="StaggeredGridLayoutManager"
-        app:spanCount="2"
-        tools:listitem="@layout/test_item" />
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:adapter="@{vm.adapter}"
+            app:layoutManager="StaggeredGridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/test_item" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#40000000"
+            android:gravity="center"
+            android:text="测试"
+            android:textColor="@android:color/white"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+    </FrameLayout>
 
 </layout>

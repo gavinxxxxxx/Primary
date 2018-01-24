@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * RecyclerView 基类列表适配器
  *
- * @author gavin.xiong 2016/12/9  2016/12/9
+ * @author gavin.xiong 2016/12/9
  */
 public abstract class RecyclerAdapter<T, B extends ViewDataBinding>
         extends RecyclerView.Adapter<RecyclerHolder<B>> {
