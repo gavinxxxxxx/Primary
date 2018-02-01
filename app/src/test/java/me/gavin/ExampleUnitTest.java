@@ -1,4 +1,4 @@
-package me.gavin.primary;
+package me.gavin;
 
 import org.junit.Test;
 
