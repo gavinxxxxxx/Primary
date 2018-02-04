@@ -7,8 +7,7 @@ import android.text.TextUtils;
 
 import java.io.IOException;
 
-import me.gavin.inject.component.ApplicationComponent;
-import me.gavin.inject.module.ClientAPIModule;
+import me.gavin.base.App;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -16,8 +15,9 @@ import okhttp3.Response;
 
 
 /**
- * OkHttp3 缓存拦截器 使用{@link ClientAPIModule}
- * 配合 {@link retrofit2.http.Header}、{@link retrofit2.http.Headers}
+ * OkHttp3 缓存拦截器
+ * 使用 {@link me.gavin.inject.module.ClientAPIModule}
+ * 配合 {@link retrofit2.http.Header} | {@link retrofit2.http.Headers}
  *
  * @author gavin.xiong 2017/4/28
  */
@@ -26,7 +26,7 @@ public final class OKHttpCacheInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
-        if (!isNetworkAvailable(ApplicationComponent.Instance.get().getApplication())) {
+        if (!isNetworkAvailable(App.get())) {
             // 网络不可用时强制使用缓存
             request = request.newBuilder()
                     .cacheControl(CacheControl.FORCE_CACHE)

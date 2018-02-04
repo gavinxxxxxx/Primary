@@ -38,7 +38,7 @@ public interface ApplicationComponent {
 
         private static ApplicationComponent sComponent;
 
-        public static void init(@NonNull ApplicationComponent component) {
+        public static void set(@NonNull ApplicationComponent component) {
             sComponent = component;
         }
 

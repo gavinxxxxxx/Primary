@@ -10,10 +10,11 @@ import java.lang.ref.WeakReference;
 
 import javax.inject.Inject;
 
-import me.gavin.inject.component.ApplicationComponent;
-import me.gavin.service.base.DataLayer;
+import dagger.Lazy;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import me.gavin.inject.component.ApplicationComponent;
+import me.gavin.service.base.DataLayer;
 
 /**
  * BaseViewModel
@@ -23,7 +24,7 @@ import io.reactivex.disposables.Disposable;
 public abstract class BaseViewModel extends BaseObservable implements Disposable {
 
     @Inject
-    DataLayer mDataLayer;
+    Lazy<DataLayer> mDataLayer;
     @Inject
     protected CompositeDisposable mCompositeDisposable;
 
@@ -42,7 +43,7 @@ public abstract class BaseViewModel extends BaseObservable implements Disposable
     public abstract void afterCreate();
 
     protected DataLayer getDataLayer() {
-        return mDataLayer;
+        return mDataLayer.get();
     }
 
     @Override

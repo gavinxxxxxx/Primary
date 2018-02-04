@@ -14,13 +14,13 @@ import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 import me.gavin.app.collection.CollectionFragment;
 import me.gavin.app.daily.DailyFragment;
 import me.gavin.app.gank.GankFragment;
 import me.gavin.app.setting.AboutFragment;
 import me.gavin.base.BindingActivity;
 import me.gavin.base.RxBus;
+import me.gavin.base.RxTransformers;
 import me.gavin.primary.R;
 import me.gavin.primary.databinding.ActMainBinding;
 import me.gavin.test.TestFragment;
@@ -88,8 +88,7 @@ public class MainActivity extends BindingActivity<ActMainBinding>
     private void popTo() {
         Observable.just(0)
                 .delay(380, TimeUnit.MILLISECONDS)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .compose(RxTransformers.applySchedulers())
                 .doOnSubscribe(mCompositeDisposable::add)
                 .subscribe(arg0 -> popTo(DailyFragment.class, false));
     }
@@ -97,8 +96,7 @@ public class MainActivity extends BindingActivity<ActMainBinding>
     private void next(SupportFragment fragment) {
         Observable.just(fragment)
                 .delay(380, TimeUnit.MILLISECONDS)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .compose(RxTransformers.applySchedulers())
                 .doOnSubscribe(mCompositeDisposable::add)
                 .subscribe(this::start);
     }

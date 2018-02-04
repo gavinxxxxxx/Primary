@@ -5,11 +5,10 @@ import android.databinding.ViewDataBinding;
 
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observable;
 import me.gavin.app.common.Image;
 import me.gavin.app.common.ImageViewModel;
 import me.gavin.base.BaseFragment;
-import me.gavin.db.util.DbUtil;
-import io.reactivex.Observable;
 
 /**
  * 收藏
@@ -27,7 +26,7 @@ class CollectionViewModel extends ImageViewModel {
         return Observable.just(isMore)
                 .delay(500, TimeUnit.MILLISECONDS)
                 .map(arg0 -> arg0 ? pagingOffset - 1 : 0)
-                .flatMap(offset -> Observable.just(DbUtil.getCollectionService().queryDesc(offset)))
+                .map(offset -> getDataLayer().getCollectionService().queryDesc(offset))
                 .map(list -> {
                     pagingHaveMore = list.size() == 10;
                     return list;
