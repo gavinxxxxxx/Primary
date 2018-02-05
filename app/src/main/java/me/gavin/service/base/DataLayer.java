@@ -4,11 +4,12 @@ import android.support.v4.app.Fragment;
 
 import java.util.List;
 
-import me.gavin.app.common.Image;
-import me.gavin.app.daily.News;
-import me.gavin.app.daily.Daily;
-import me.gavin.app.setting.License;
 import io.reactivex.Observable;
+import me.gavin.app.collection.Collection;
+import me.gavin.app.common.Image;
+import me.gavin.app.daily.Daily;
+import me.gavin.app.daily.News;
+import me.gavin.app.setting.License;
 import okhttp3.ResponseBody;
 
 /**
@@ -20,13 +21,17 @@ public class DataLayer {
 
     private DailyService mDailyService;
     private GankService mGankService;
+    private CollectionService mCollectionService;
     private SettingService mSettingService;
 
-    public DataLayer(DailyService dailyService,
-                     GankService gankService,
-                     SettingService settingService) {
+    public DataLayer(
+            DailyService dailyService,
+            GankService gankService,
+            CollectionService collectionService,
+            SettingService settingService) {
         mDailyService = dailyService;
         mGankService = gankService;
+        mCollectionService = collectionService;
         mSettingService = settingService;
     }
 
@@ -36,6 +41,10 @@ public class DataLayer {
 
     public GankService getGankService() {
         return mGankService;
+    }
+
+    public CollectionService getCollectionService() {
+        return mCollectionService;
     }
 
     public SettingService getSettingService() {
@@ -62,6 +71,19 @@ public class DataLayer {
 
     public interface GankService {
         Observable<Image> getImage(Fragment fragment, int limit, int no);
+    }
+
+    public interface CollectionService {
+
+        void save(String image);
+
+        void delete(String image);
+
+        boolean hasCollected(String image);
+
+        void toggle(String image);
+
+        List<Collection> queryDesc(int offset);
     }
 
     public interface SettingService {

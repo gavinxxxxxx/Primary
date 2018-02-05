@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import me.gavin.inject.component.ApplicationComponent;
+import me.gavin.base.App;
 
 /**
  * 文件缓存与读取
@@ -50,7 +50,7 @@ public final class FilesHelper {
     }
 
     private static String getFilesDir() {
-        return CacheHelper.getFilesDir(ApplicationComponent.Instance.get().getApplication(), null);
+        return CacheHelper.getFilesDir(App.get(), null);
     }
 
 }

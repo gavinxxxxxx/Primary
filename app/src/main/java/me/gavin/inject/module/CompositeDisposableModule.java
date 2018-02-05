@@ -17,7 +17,7 @@ public class CompositeDisposableModule {
      * @return CompositeDisposable
      */
     @Provides
-    public CompositeDisposable provideCompositeDisposable() {
+    CompositeDisposable provideCompositeDisposable() {
         return new CompositeDisposable();
     }
 }

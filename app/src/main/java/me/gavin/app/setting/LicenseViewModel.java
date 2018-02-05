@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.databinding.ViewDataBinding;
 import android.net.Uri;
 
+import me.gavin.base.RxTransformers;
 import me.gavin.primary.R;
 import me.gavin.base.BaseFragment;
 import me.gavin.base.recycler.BindingHFAdapter;
@@ -39,8 +40,7 @@ class LicenseViewModel extends PagingViewModel<License, BindingHFAdapter<License
     @Override
     protected void getData(boolean isMore) {
         getDataLayer().getSettingService().getLicense()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .compose(RxTransformers.applySchedulers())
                 .doOnSubscribe(disposable -> {
                     mCompositeDisposable.add(disposable);
                     loading.set(true);

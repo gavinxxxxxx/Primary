@@ -17,15 +17,14 @@ import java.io.File;
 import java.util.List;
 import java.util.UUID;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import me.gavin.app.common.Image;
-import me.gavin.db.util.DbUtil;
 import me.gavin.base.BaseFragment;
 import me.gavin.base.RxBus;
+import me.gavin.base.RxTransformers;
 import me.gavin.base.recycler.PagingViewModel;
 import me.gavin.primary.databinding.FragBigImageBinding;
 import me.gavin.util.CacheHelper;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
 /**
@@ -103,11 +102,11 @@ class BigImageViewModel extends PagingViewModel<Image, BigImageAdapter> {
     }
 
     boolean isImageCollected(String imageUrl) {
-        return DbUtil.getCollectionService().hasCollected(imageUrl);
+        return getDataLayer().getCollectionService().hasCollected(imageUrl);
     }
 
     void toggleCollect(String imageUrl) {
-        DbUtil.getCollectionService().toggle(imageUrl);
+        getDataLayer().getCollectionService().toggle(imageUrl);
     }
 
     /**
@@ -139,8 +138,7 @@ class BigImageViewModel extends PagingViewModel<Image, BigImageAdapter> {
                     return CacheHelper.saveImageStream(inputStream, name);
                 })
                 .map(path -> CacheHelper.file2Uri(mContext.get(), new File(path)))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .compose(RxTransformers.applySchedulers())
                 .subscribe(uri -> {
                     if (type == 0) {
                         Snackbar.make(mBinding.get().getRoot(), "图片已保存", Snackbar.LENGTH_LONG)

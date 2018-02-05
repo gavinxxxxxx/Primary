@@ -12,7 +12,12 @@ import dagger.Provides;
  *
  * @author gavin.xiong 2017/4/28
  */
-@Module(includes = {DataLayerModule.class, ClientAPIModule.class, CompositeDisposableModule.class})
+@Module(includes = {
+        DataLayerModule.class,
+        ClientAPIModule.class,
+        DatabaseModule.class,
+        CompositeDisposableModule.class
+})
 public class ApplicationModule {
 
     private Application mApplication;
@@ -28,7 +33,7 @@ public class ApplicationModule {
      */
     @Singleton
     @Provides
-    public Application provideApplication() {
+    Application provideApplication() {
         return mApplication;
     }
 }

@@ -4,6 +4,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import me.gavin.service.CollectionManager;
 import me.gavin.service.DailyManager;
 import me.gavin.service.GankManager;
 import me.gavin.service.SettingManager;
@@ -19,27 +20,35 @@ public class DataLayerModule {
 
     @Singleton
     @Provides
-    public DailyManager provideDailyManager() {
+    DailyManager provideDailyManager() {
         return new DailyManager();
     }
 
     @Singleton
     @Provides
-    public GankManager provideGankManager() {
+    GankManager provideGankManager() {
         return new GankManager();
     }
 
     @Singleton
     @Provides
-    public SettingManager provideSettingManager() {
+    CollectionManager provideCollectionManager() {
+        return new CollectionManager();
+    }
+
+    @Singleton
+    @Provides
+    SettingManager provideSettingManager() {
         return new SettingManager();
     }
 
     @Singleton
     @Provides
-    public DataLayer provideDataLayer(DailyManager dailyManager,
-                                      GankManager gankManager,
-                                      SettingManager settingManager) {
-        return new DataLayer(dailyManager, gankManager, settingManager);
+    DataLayer provideDataLayer(
+            DailyManager dailyManager,
+            GankManager gankManager,
+            CollectionManager collectionManager,
+            SettingManager settingManager) {
+        return new DataLayer(dailyManager, gankManager, collectionManager, settingManager);
     }
 }

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import me.gavin.base.RxTransformers;
 import me.gavin.primary.R;
 import me.gavin.base.FragViewModel;
 import me.gavin.base.RxBus;
@@ -113,8 +114,7 @@ public class BannerViewModel<T> extends FragViewModel<BannerFragment, FragBanner
 
     private void initTimer() {
         Observable.timer(5, TimeUnit.SECONDS)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .compose(RxTransformers.applySchedulers())
                 .filter(arg0 -> mList != null && mList.size() > 1)
                 .doOnSubscribe(disposable -> {
                     cancelTimer();

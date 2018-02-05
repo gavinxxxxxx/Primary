@@ -19,15 +19,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import me.gavin.app.common.Image;
-import me.gavin.db.util.DbUtil;
-import me.gavin.primary.R;
-import me.gavin.base.BindingFragment;
-import me.gavin.base.BundleKey;
-import me.gavin.primary.databinding.FragBigImageBinding;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import me.gavin.app.common.Image;
+import me.gavin.base.BindingFragment;
+import me.gavin.base.BundleKey;
+import me.gavin.base.RxTransformers;
+import me.gavin.primary.R;
+import me.gavin.primary.databinding.FragBigImageBinding;
 
 /**
  * 查看大图
@@ -57,6 +56,7 @@ public class BigImageFragment extends BindingFragment<FragBigImageBinding, BigIm
         return fragment;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     protected void bindViewModel(@Nullable Bundle savedInstanceState) {
         mViewModel = new BigImageViewModel(getContext(), this, mBinding);
@@ -128,8 +128,7 @@ public class BigImageFragment extends BindingFragment<FragBigImageBinding, BigIm
                         imageUrl = imageList.get(layoutManager.findFirstVisibleItemPosition()).getUrl();
                         Observable.just(imageUrl)
                                 .map(s -> mViewModel.isImageCollected(s))
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
+                                .compose(RxTransformers.applySchedulers())
                                 .subscribe(ivActionLove::setSelected);
                     } else {
                         mBinding.toolbar.getMenu().findItem(R.id.actionCollect).setVisible(false);
@@ -142,9 +141,8 @@ public class BigImageFragment extends BindingFragment<FragBigImageBinding, BigIm
 
         imageUrl = imageList.get(getArguments().getInt(BundleKey.POSITION)).getUrl();
         Observable.just(imageUrl)
-                .map(s -> DbUtil.getCollectionService().hasCollected(s))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .map(s -> mViewModel.isImageCollected(s))
+                .compose(RxTransformers.applySchedulers())
                 .subscribe(ivActionLove::setSelected);
     }
 
