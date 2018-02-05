@@ -17,6 +17,14 @@ def photoViewVersion = "2.0.0"
 def guavaVersion = "22.0-android"
 def greenDaoVersion = "3.2.2"
 
+def static autoVersionCode() {
+    return Integer.parseInt(new Date().format("yyMMdd", TimeZone.getTimeZone("UTC")))
+}
+
+def static autoVersionName() {
+    return new Date().format("yy.MM.dd", TimeZone.getTimeZone("UTC"))
+}
+
 
 ext {
     applicationId = "me.gavin.primary"
@@ -24,6 +32,8 @@ ext {
     buildToolsVersion = "27.0.3"
     minSdkVersion = 21
     targetSdkVersion = 27
+    versionCode = autoVersionCode()
+    versionName = autoVersionName()
     resConfigs = "zh" // 只保留中文
 
 

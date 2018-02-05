@@ -2,14 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'AndResGuard'
 
-def static autoVersionCode() {
-    return Integer.parseInt(new Date().format("yyMMdd", TimeZone.getTimeZone("UTC")))
-}
-
-def static autoVersionName() {
-    return new Date().format("yy.MM.dd", TimeZone.getTimeZone("UTC"))
-}
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -18,8 +10,8 @@ android {
         applicationId rootProject.ext.applicationId
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode autoVersionCode()
-        versionName autoVersionName()
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         resConfigs rootProject.ext.resConfigs
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
