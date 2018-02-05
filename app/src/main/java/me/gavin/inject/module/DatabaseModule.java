@@ -45,4 +45,5 @@ public class DatabaseModule {
         QueryBuilder.LOG_SQL = BuildConfig.LOG_DEBUG;
         QueryBuilder.LOG_VALUES = BuildConfig.LOG_DEBUG;
     }
+
 }
