@@ -382,12 +382,11 @@ public class DateUtil {
     /**
      * 友好的时间显示
      *
-     * @param dataTimeString @yyyy-MM-dd'T'HH:mm:ss.SSSZ 2017-04-28T09:20:05.077
+     * @param date date
      * @return
      */
-    public static String getFriendlyTime(String dataTimeString) {
+    public static String getFriendlyTime(Date date) {
         try {
-            Date date = parse(dataTimeString, "yyyy-MM-dd'T'HH:mm:ss.SSS");
             Calendar time = Calendar.getInstance();
             time.setTime(date);
             Calendar now = Calendar.getInstance();
