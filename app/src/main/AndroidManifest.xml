@@ -32,7 +32,7 @@
         <!-- Android N 更新 FileUriExposedException -->
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="me.gavin.primary.fileProvider"
+            android:authorities="${applicationId}.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
