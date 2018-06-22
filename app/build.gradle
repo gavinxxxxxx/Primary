@@ -32,9 +32,11 @@ android {
             minifyEnabled false
             shrinkResources false
             zipAlignEnabled false
+            applicationIdSuffix ".debug"
             versionNameSuffix ".debug"
             buildConfigField "boolean", "LOG_DEBUG", "true"
             buildConfigField "boolean", "API_DEBUG", "true"
+            resValue "string", "app_name", "Primary.Debug"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
@@ -43,22 +45,24 @@ android {
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
+            applicationIdSuffix ".release"
             versionNameSuffix ".release"
             buildConfigField "boolean", "LOG_DEBUG", "false"
             buildConfigField "boolean", "API_DEBUG", "false"
+            resValue "string", "app_name", "Primary"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
-    }
-
-    dataBinding {
-        enabled = true
     }
 
     sourceSets {
         main {
             jniLibs.srcDirs = ["libs"]
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 
     greendao {
