@@ -13,10 +13,10 @@ import java.util.Random;
 import me.gavin.base.FragViewModel;
 import me.gavin.base.recycler.RecyclerHFAdapter;
 import me.gavin.base.recycler.RecyclerHolder;
-import me.gavin.primary.R;
-import me.gavin.primary.databinding.TestHeaderFooterBinding;
-import me.gavin.primary.databinding.TestItemBinding;
-import me.gavin.primary.databinding.TestLayoutBinding;
+import me.gavin.R;
+import me.gavin.databinding.TestHeaderFooterBinding;
+import me.gavin.databinding.TestItemBinding;
+import me.gavin.databinding.TestLayoutBinding;
 
 /**
  * 知乎日报列表

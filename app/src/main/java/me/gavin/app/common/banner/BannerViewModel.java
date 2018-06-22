@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import me.gavin.base.RxTransformers;
-import me.gavin.primary.R;
+import me.gavin.R;
 import me.gavin.base.FragViewModel;
 import me.gavin.base.RxBus;
-import me.gavin.primary.databinding.FragBannerBinding;
+import me.gavin.databinding.FragBannerBinding;
 import me.gavin.util.DisplayUtil;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

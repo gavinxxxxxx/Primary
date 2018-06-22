@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import me.gavin.primary.R;
+import me.gavin.R;
 import me.gavin.app.common.banner.BannerChangeEvent;
 import me.gavin.app.common.banner.BannerModel;
 import me.gavin.app.main.StartFragmentEvent;

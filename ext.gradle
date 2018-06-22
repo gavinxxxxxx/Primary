@@ -27,7 +27,6 @@ def static autoVersionName() {
 
 
 ext {
-    applicationId = "me.gavin.primary"
     compileSdkVersion = 27
     buildToolsVersion = "27.0.3"
     minSdkVersion = 21

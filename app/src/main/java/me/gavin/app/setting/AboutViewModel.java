@@ -6,7 +6,7 @@ import android.databinding.ObservableField;
 import android.net.Uri;
 
 import me.gavin.base.FragViewModel;
-import me.gavin.primary.databinding.FragAboutBinding;
+import me.gavin.databinding.FragAboutBinding;
 import me.gavin.util.L;
 import me.gavin.util.VersionHelper;
 

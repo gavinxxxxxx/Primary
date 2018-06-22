@@ -23,7 +23,7 @@ import me.gavin.base.BaseFragment;
 import me.gavin.base.RxBus;
 import me.gavin.base.RxTransformers;
 import me.gavin.base.recycler.PagingViewModel;
-import me.gavin.primary.databinding.FragBigImageBinding;
+import me.gavin.databinding.FragBigImageBinding;
 import me.gavin.util.CacheHelper;
 import okhttp3.ResponseBody;
 

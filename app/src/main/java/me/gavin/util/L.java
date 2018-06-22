@@ -2,7 +2,7 @@ package me.gavin.util;
 
 import android.util.Log;
 
-import me.gavin.primary.BuildConfig;
+import me.gavin.BuildConfig;
 
 /**
  * 日志工具

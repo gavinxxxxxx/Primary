@@ -3,9 +3,9 @@ package me.gavin.app.setting;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import me.gavin.primary.R;
+import me.gavin.R;
 import me.gavin.base.BindingFragment;
-import me.gavin.primary.databinding.FragAboutBinding;
+import me.gavin.databinding.FragAboutBinding;
 
 /**
  * 关于

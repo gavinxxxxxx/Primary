@@ -21,8 +21,8 @@ import me.gavin.app.setting.AboutFragment;
 import me.gavin.base.BindingActivity;
 import me.gavin.base.RxBus;
 import me.gavin.base.RxTransformers;
-import me.gavin.primary.R;
-import me.gavin.primary.databinding.ActMainBinding;
+import me.gavin.R;
+import me.gavin.databinding.ActMainBinding;
 import me.gavin.test.TestFragment;
 import me.yokeyword.fragmentation.SupportFragment;
 

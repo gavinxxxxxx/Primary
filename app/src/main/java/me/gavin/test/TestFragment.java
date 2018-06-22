@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import me.gavin.base.BindingFragment;
-import me.gavin.primary.R;
-import me.gavin.primary.databinding.TestLayoutBinding;
+import me.gavin.R;
+import me.gavin.databinding.TestLayoutBinding;
 
 /**
  * 这里是萌萌哒注释君

@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.Space;
 import android.widget.TextView;
 
-import me.gavin.primary.R;
+import me.gavin.R;
 import me.gavin.util.DateUtil;
 import me.gavin.util.DisplayUtil;
 import me.gavin.util.ImageLoader;

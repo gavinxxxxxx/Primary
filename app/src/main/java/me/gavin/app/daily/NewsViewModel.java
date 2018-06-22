@@ -4,7 +4,7 @@ import android.content.Context;
 import android.databinding.ObservableField;
 
 import me.gavin.base.FragViewModel;
-import me.gavin.primary.databinding.FragNewsBinding;
+import me.gavin.databinding.FragNewsBinding;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 

@@ -3,10 +3,10 @@ package me.gavin.app.daily;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import me.gavin.primary.R;
+import me.gavin.R;
 import me.gavin.base.BindingFragment;
 import me.gavin.base.BundleKey;
-import me.gavin.primary.databinding.FragNewsBinding;
+import me.gavin.databinding.FragNewsBinding;
 
 /**
  * 日报详情页

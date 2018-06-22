@@ -8,8 +8,8 @@ import java.util.List;
 import me.gavin.base.function.IntConsumer;
 import me.gavin.base.recycler.RecyclerHFAdapter;
 import me.gavin.base.recycler.RecyclerHolder;
-import me.gavin.primary.R;
-import me.gavin.primary.databinding.ItemImageBinding;
+import me.gavin.R;
+import me.gavin.databinding.ItemImageBinding;
 import me.gavin.util.DisplayUtil;
 import me.gavin.util.ImageLoader;
 

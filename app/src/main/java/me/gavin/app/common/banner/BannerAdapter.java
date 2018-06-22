@@ -10,8 +10,8 @@ import me.gavin.app.main.StartFragmentEvent;
 import me.gavin.base.RxBus;
 import me.gavin.base.recycler.RecyclerAdapter;
 import me.gavin.base.recycler.RecyclerHolder;
-import me.gavin.primary.R;
-import me.gavin.primary.databinding.ItemBannerBinding;
+import me.gavin.R;
+import me.gavin.databinding.ItemBannerBinding;
 
 /**
  * 轮播适配器

@@ -15,8 +15,8 @@ import me.gavin.base.BaseFragment;
 import me.gavin.base.RxBus;
 import me.gavin.base.recycler.RecyclerHFAdapter;
 import me.gavin.base.recycler.RecyclerHolder;
-import me.gavin.primary.R;
-import me.gavin.primary.databinding.ItemBigImageBinding;
+import me.gavin.R;
+import me.gavin.databinding.ItemBigImageBinding;
 import me.gavin.util.L;
 
 /**

@@ -6,7 +6,7 @@ import android.databinding.ViewDataBinding;
 import android.net.Uri;
 
 import me.gavin.base.RxTransformers;
-import me.gavin.primary.R;
+import me.gavin.R;
 import me.gavin.base.BaseFragment;
 import me.gavin.base.recycler.BindingHFAdapter;
 import me.gavin.base.recycler.PagingViewModel;

@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.Target;
 
-import me.gavin.primary.R;
+import me.gavin.R;
 import me.gavin.util.glide.BlurTransformation;
 import me.gavin.util.glide.GlideCircleTransformation;
 import me.gavin.util.glide.GlideRoundTransformation;

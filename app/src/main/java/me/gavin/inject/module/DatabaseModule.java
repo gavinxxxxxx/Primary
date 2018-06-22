@@ -12,7 +12,7 @@ import dagger.Provides;
 import me.gavin.base.Config;
 import me.gavin.db.dao.DaoMaster;
 import me.gavin.db.dao.DaoSession;
-import me.gavin.primary.BuildConfig;
+import me.gavin.BuildConfig;
 
 /**
  * DatabaseModule

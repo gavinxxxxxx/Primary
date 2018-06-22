@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import me.gavin.app.main.DrawerStateEvent;
-import me.gavin.primary.R;
+import me.gavin.R;
 import me.gavin.app.common.banner.BannerFragment;
 import me.gavin.app.main.DrawerEnableEvent;
 import me.gavin.base.BindingFragment;
 import me.gavin.base.RxBus;
-import me.gavin.primary.databinding.FragDailyBinding;
+import me.gavin.databinding.FragDailyBinding;
 
 /**
  * 知乎日报 - 列表

@@ -25,8 +25,8 @@ import me.gavin.app.common.Image;
 import me.gavin.base.BindingFragment;
 import me.gavin.base.BundleKey;
 import me.gavin.base.RxTransformers;
-import me.gavin.primary.R;
-import me.gavin.primary.databinding.FragBigImageBinding;
+import me.gavin.R;
+import me.gavin.databinding.FragBigImageBinding;
 
 /**
  * 查看大图

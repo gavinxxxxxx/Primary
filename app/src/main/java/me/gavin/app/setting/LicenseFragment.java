@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 
-import me.gavin.primary.BR;
-import me.gavin.primary.R;
+import me.gavin.BR;
+import me.gavin.R;
 import me.gavin.base.BindingFragment;
-import me.gavin.primary.databinding.LayoutPagingToolbarBinding;
+import me.gavin.databinding.LayoutPagingToolbarBinding;
 
 /**
  * 开源许可

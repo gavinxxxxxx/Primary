@@ -13,7 +13,7 @@ import java.util.List;
 
 import me.gavin.base.BaseFragment;
 import me.gavin.base.FragViewModel;
-import me.gavin.primary.databinding.FooterLoadingBinding;
+import me.gavin.databinding.FooterLoadingBinding;
 
 /**
  * 分页 ViewModel 基类

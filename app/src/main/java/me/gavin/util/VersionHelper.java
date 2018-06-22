@@ -14,7 +14,7 @@ import android.support.v4.content.FileProvider;
 
 import java.io.File;
 
-import me.gavin.primary.BuildConfig;
+import me.gavin.BuildConfig;
 
 /**
  * 版本升级助手

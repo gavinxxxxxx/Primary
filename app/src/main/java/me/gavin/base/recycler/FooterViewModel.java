@@ -4,7 +4,7 @@ import android.content.Context;
 import android.databinding.ObservableBoolean;
 
 import me.gavin.base.BaseViewModel;
-import me.gavin.primary.R;
+import me.gavin.R;
 
 /**
  * 下拉加载更多 ViewModel

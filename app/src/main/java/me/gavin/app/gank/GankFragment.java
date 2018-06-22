@@ -5,9 +5,9 @@ import android.support.annotation.Nullable;
 
 import com.android.databinding.library.baseAdapters.BR;
 
-import me.gavin.primary.R;
+import me.gavin.R;
 import me.gavin.base.BindingFragment;
-import me.gavin.primary.databinding.LayoutPagingToolbarBinding;
+import me.gavin.databinding.LayoutPagingToolbarBinding;
 
 /**
  * 干货集中营 - 福利

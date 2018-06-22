@@ -13,7 +13,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import me.gavin.net.ClientAPI;
-import me.gavin.primary.BuildConfig;
+import me.gavin.BuildConfig;
 import me.gavin.util.CacheHelper;
 import me.gavin.util.okhttp.OKHttpCacheInterceptor;
 import me.gavin.util.okhttp.OKHttpCacheNetworkInterceptor;
