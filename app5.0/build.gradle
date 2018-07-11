@@ -98,7 +98,7 @@ andResGuard {
             "resources.arsc"
     ]
     sevenzip {
-        artifact = 'com.tencent.mm:SevenZip:1.2.10'
+        artifact = 'com.tencent.mm:SevenZip:1.2.13'
     }
     // v2签名会使得7zip压缩失效，如果你对apk大小有极致的要求，可以在signingConfigs中关闭v2签名
     // gradlew resguardRelease
@@ -115,12 +115,10 @@ dependencies {
     implementation rootProject.ext.libSupportDesign
     implementation rootProject.ext.libSupportRecyclerView
     implementation rootProject.ext.libSupportCardView
-    //    compile rootProject.ext.libSupportGridLayout
-    //    compile rootProject.ext.libSupportVectorDrawable
-    //    compile rootProject.ext.libSupportPalette
-    //    compile rootProject.ext.libSupportPercent
-
-    //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation rootProject.ext.libSupportVectorDrawable
+    // implementation rootProject.ext.libSupportGridLayout
+    // implementation rootProject.ext.libSupportPalette
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
     implementation rootProject.ext.libFragmentation
 
@@ -148,4 +146,6 @@ dependencies {
     implementation rootProject.ext.libPhotoView
 
     implementation rootProject.ext.libGreenDao
+
+    implementation rootProject.ext.libAgentWeb
 }
