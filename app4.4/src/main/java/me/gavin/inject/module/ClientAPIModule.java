@@ -6,23 +6,14 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyStore;
-import java.security.SecureRandom;
-import java.security.cert.CertificateFactory;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Singleton;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManagerFactory;
 
 import dagger.Module;
 import dagger.Provides;
-import me.gavin.base.App;
-import me.gavin.net.ClientAPI;
 import me.gavin.BuildConfig;
+import me.gavin.net.ClientAPI;
 import me.gavin.util.CacheHelper;
 import me.gavin.util.okhttp.HttpRequestHeaderInterceptor;
 import me.gavin.util.okhttp.OKHttpCacheInterceptor;
@@ -44,9 +35,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class ClientAPIModule {
 
-    private static final String BASE_URL = "http://test.chainfor.com:8099/";
-    // private static final String BASE_URL = "https://testmobile.chainfor.com:8061";
-    // private static final String BASE_URL = "https://mobile.chainfor.com:8061";
+    private static final String BASE_URL = "http://xxx.xxx.xxx:xxxx/";
 
     /**
      * 创建一个ClientAPI的实现类单例对象
@@ -121,53 +110,9 @@ public class ClientAPIModule {
                 .addInterceptor(cacheInterceptor)
                 .addNetworkInterceptor(cacheNetworkInterceptor)
                 .addInterceptor(logging)
-                // .addInterceptor(logging2)
-                // .sslSocketFactory(setCertificates(getIs()))
+                .addInterceptor(logging2)
                 .cache(cache)
                 .build();
-    }
-
-    public static SSLSocketFactory setCertificates(InputStream... certificates) {
-        try {
-            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-            keyStore.load(null);
-            int index = 0;
-            for (InputStream certificate : certificates) {
-                String certificateAlias = Integer.toString(index++);
-                keyStore.setCertificateEntry(certificateAlias, certificateFactory.generateCertificate(certificate));
-                try {
-                    if (certificate != null)
-                        certificate.close();
-                } catch (IOException e) {
-                }
-            }
-            SSLContext sslContext = SSLContext.getInstance("TLS");
-            TrustManagerFactory trustManagerFactory =
-                    TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            trustManagerFactory.init(keyStore);
-            sslContext.init
-                    (
-                            null,
-                            trustManagerFactory.getTrustManagers(),
-                            new SecureRandom()
-                    );
-
-            return sslContext.getSocketFactory();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public static InputStream getIs() {
-        try {
-            InputStream is = App.get().getAssets().open("chainfor.cer");
-            return is;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
     /**

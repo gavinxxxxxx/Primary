@@ -56,7 +56,7 @@ public class WebViewActivity extends BindingActivity<MainActivityWebViewBinding>
         mAgentWeb = AgentWeb.with(this)
                 .setAgentWebParent(mBinding.holder, new FrameLayout.LayoutParams(-1, -1))
                 .useDefaultIndicator(ContextCompat.getColor(this, R.color.colorAccent))
-                .addJavascriptInterface("chainfor", this)
+                .addJavascriptInterface("android", this)
                 .setWebViewClient(new WebViewClient() {
                     @Override
                     public void onPageStarted(WebView view, String url, Bitmap favicon) {

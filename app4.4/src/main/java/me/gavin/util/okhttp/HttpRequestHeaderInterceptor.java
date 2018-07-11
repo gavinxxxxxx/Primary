@@ -19,9 +19,6 @@ public class HttpRequestHeaderInterceptor implements Interceptor {
     }
 
     private String getAuthorization() {
-//        return ChainforApplication.getInstance().userModel == null
-//                || TextUtils.isEmpty(ChainforApplication.getInstance().userModel.getAuthorization())
-//                ? "" : ChainforApplication.getInstance().userModel.getAuthorization();
         return "";
     }
 }
