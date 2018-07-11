@@ -9,7 +9,7 @@
     <item
         android:id="@+id/nav_quotation"
         android:icon="@drawable/vt_daily"
-        android:title="行情" />
+        android:title="发现" />
 
     <item
         android:id="@+id/nav_news"

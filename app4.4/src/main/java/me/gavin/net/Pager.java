@@ -4,22 +4,6 @@ import java.util.List;
 
 /**
  * 分页数据
- * <p>
- * private int total;
- * private int totalCount;
- * private boolean pagination;
- * private int pageSize;
- * private int totalPage;
- * private int pageNo;
- * private boolean firstPage;
- * private boolean lastPage;
- * private int prePage;
- * private int nextPage;
- * private Object clazz;
- * private int firstResult;
- * private String totalFieldName;
- * private List<?> footer;
- * private List<T> list;
  *
  * @author gavin.xiong 2018/7/2 0002
  */
