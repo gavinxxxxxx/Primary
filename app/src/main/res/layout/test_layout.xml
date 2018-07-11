@@ -7,9 +7,6 @@
 
         <import type="android.view.View" />
 
-        <variable
-            name="vm"
-            type="me.gavin.test.TestViewModel" />
 
     </data>
 
@@ -21,7 +18,6 @@
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:adapter="@{vm.adapter}"
             app:layoutManager="StaggeredGridLayoutManager"
             app:spanCount="2"
             tools:listitem="@layout/test_item" />

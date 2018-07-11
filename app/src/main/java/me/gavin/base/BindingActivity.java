@@ -4,7 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 
 /**
- * 这里是萌萌哒注释君
+ * Activity with dataBinding
  *
  * @author gavin.xiong 2017/1/4  2017/1/4
  */

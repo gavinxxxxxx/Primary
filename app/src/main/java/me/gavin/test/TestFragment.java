@@ -12,17 +12,10 @@ import me.gavin.databinding.TestLayoutBinding;
  *
  * @author gavin.xiong 2017/12/28
  */
-public class TestFragment extends BindingFragment<TestLayoutBinding, TestViewModel> {
+public class TestFragment extends BindingFragment<TestLayoutBinding> {
 
     public static TestFragment newInstance() {
         return new TestFragment();
-    }
-
-    @Override
-    protected void bindViewModel(@Nullable Bundle savedInstanceState) {
-        mViewModel = new TestViewModel(getContext(), this, mBinding);
-        mViewModel.afterCreate();
-        mBinding.setVm(mViewModel);
     }
 
     @Override

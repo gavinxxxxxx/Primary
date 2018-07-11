@@ -5,8 +5,10 @@ import android.support.annotation.Nullable;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
 import me.gavin.inject.component.ApplicationComponent;
 import io.reactivex.disposables.CompositeDisposable;
+import me.gavin.service.base.DataLayer;
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.anim.DefaultVerticalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
@@ -18,6 +20,8 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  */
 public abstract class BaseActivity extends SupportActivity {
 
+    @Inject
+    Lazy<DataLayer> mDataLayer;
     @Inject
     protected CompositeDisposable mCompositeDisposable;
 
@@ -38,6 +42,10 @@ public abstract class BaseActivity extends SupportActivity {
     @Override
     public FragmentAnimator onCreateFragmentAnimator() {
         return new DefaultVerticalAnimator();
+    }
+
+    protected DataLayer getDataLayer() {
+        return mDataLayer.get();
     }
 
     public abstract void setContentView();

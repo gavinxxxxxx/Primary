@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 import javax.inject.Inject;
 
 import dagger.Lazy;
-import me.gavin.db.dao.DaoSession;
 import me.gavin.inject.component.ApplicationComponent;
 import me.gavin.net.ClientAPI;
 
@@ -20,8 +19,6 @@ public abstract class BaseManager {
     Lazy<ClientAPI> mApi;
     @Inject
     Lazy<Gson> mGson;
-    @Inject
-    Lazy<DaoSession> mDaoSession;
 
     public BaseManager() {
         ApplicationComponent.Instance.get().inject(this);
@@ -35,7 +32,4 @@ public abstract class BaseManager {
         return mGson.get();
     }
 
-    public DaoSession getDaoSession() {
-        return mDaoSession.get();
-    }
 }
