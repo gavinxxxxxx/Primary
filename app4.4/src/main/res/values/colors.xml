@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#395DCF</color>
+    <color name="colorPrimaryDark">#395DCF</color>
+    <color name="colorAccent">#0098E2</color>
+    <color name="colorCover">#10000000</color>
+    <color name="colorCoverSecondary">#20000000</color>
+    <color name="colorCoverTertiary">#40000000</color>
+    <color name="colorBackground">#F0F0F0</color>
+    <color name="colorBackgroundSecondary">#E2E2E2</color>
+    <color name="colorBackgroundTertiary">#002985</color>
+    <color name="colorDivider">#F0F0F0</color>
+    <color name="colorVector">#777777</color>
+    <color name="colorTitle">#555555</color>
+    <color name="textColorPrimary">#2C2C2C</color>
+    <color name="textColorSecondary">#777777</color>
+    <color name="textColorTertiary">#AAAAAA</color>
+</resources>

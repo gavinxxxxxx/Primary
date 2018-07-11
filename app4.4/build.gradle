@@ -1,0 +1,152 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'AndResGuard'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "me.gavin.primary"
+        minSdkVersion 19
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        resConfigs rootProject.ext.resConfigs
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            applicationIdSuffix ".debug"
+            versionNameSuffix ".debug"
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "API_DEBUG", "true"
+            resValue "string", "app_name", "Primary.Debug"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            // applicationIdSuffix ".release"
+            // versionNameSuffix ".release"
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "API_DEBUG", "false"
+            resValue "string", "app_name", "Primary"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ["libs"]
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    greendao {
+        schemaVersion 1
+        daoPackage 'me.gavin.db.dao'
+        targetGenDir 'src/main/java'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
+}
+
+andResGuard {
+    // @link{https://github.com/shwenzhang/AndResGuard/blob/master/README.zh-cn.md}
+    mappingFile = null
+    use7zip = false
+    useSign = true
+    keepRoot = false
+    whiteList = [
+            // nothing
+    ]
+    compressFilePattern = [
+            "*.png",
+            "*.jpg",
+            "*.jpeg",
+            "*.gif",
+            "resources.arsc"
+    ]
+    sevenzip {
+        artifact = 'com.tencent.mm:SevenZip:1.2.13'
+    }
+    // v2签名会使得7zip压缩失效，如果你对apk大小有极致的要求，可以在signingConfigs中关闭v2签名
+    // gradlew resguardRelease
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    implementation rootProject.ext.libSupportAppcompat
+    implementation rootProject.ext.libSupportDesign
+    implementation rootProject.ext.libSupportRecyclerView
+    implementation rootProject.ext.libSupportCardView
+    implementation rootProject.ext.libSupportVectorDrawable
+    // implementation rootProject.ext.libSupportGridLayout
+    // implementation rootProject.ext.libSupportPalette
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
+    implementation rootProject.ext.libFragmentation
+
+    implementation rootProject.ext.libRxJava
+    implementation rootProject.ext.libRxAndroid
+    implementation rootProject.ext.libRxPermissions
+
+    implementation rootProject.ext.libRetrofit
+    implementation rootProject.ext.libRetrofitConverterGson
+    implementation rootProject.ext.libRetrofitAdapterRxJava
+
+    implementation rootProject.ext.libGson
+
+    implementation rootProject.ext.libOkHttp
+    implementation rootProject.ext.libOkHttpLoggingInterceptor
+
+    implementation rootProject.ext.libDagger
+    annotationProcessor rootProject.ext.libDaggerCompiler
+
+    implementation rootProject.ext.libShapedImageView
+
+    implementation rootProject.ext.libGlide
+    implementation rootProject.ext.libGlideOkhttp3Integration
+
+    implementation rootProject.ext.libPhotoView
+
+    implementation rootProject.ext.libGreenDao
+
+    implementation rootProject.ext.libAgentWeb
+}

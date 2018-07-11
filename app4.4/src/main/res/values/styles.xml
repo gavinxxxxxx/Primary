@@ -1,0 +1,45 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:screenOrientation">portrait</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+    </style>
+
+    <style name="AppTheme.Fullscreen">
+        <item name="colorPrimaryDark">@color/colorBackgroundTertiary</item>
+        <item name="android:windowBackground">@color/colorBackgroundTertiary</item>
+    </style>
+
+    <style name="AppTheme.Immersive" />
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@android:color/white</item>
+    </style>
+
+    <style name="ToolbarLightOverflow" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- title 颜色  -->
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <!-- 菜单展开图标颜色 三点 -->
+        <item name="android:textColorSecondary">@color/colorVector</item>
+        <!-- 非展开巷 title 颜色 -->
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="MySwitch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">#f0f0f0</item>
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">@android:color/darker_gray</item>
+    </style>
+
+</resources>

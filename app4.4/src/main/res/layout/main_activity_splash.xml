@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#002985">
+
+        <TextView
+            android:id="@+id/tvBottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"
+            android:text="©Shenzhen xxx xxx Technology Co.,Ltd All Rights Reserved\nxxxxxx.com-粤ICP备xxxxxx号"
+            android:textColor="#99b4f1"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="smallSp" />
+
+        <ImageView
+            android:id="@+id/ivBackground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toTopOf="@+id/tvBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4"
+            tools:ignore="contentDescription"
+            tools:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/ivForeground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:alpha="0"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBackground"
+            app:layout_constraintEnd_toEndOf="@+id/ivBackground"
+            app:layout_constraintStart_toStartOf="@+id/ivBackground"
+            app:layout_constraintTop_toTopOf="@+id/ivBackground"
+            app:layout_constraintVertical_bias="0.45"
+            app:layout_constraintWidth_percent="0.3"
+            tools:alpha="0.5"
+            tools:ignore="contentDescription" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

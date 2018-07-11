@@ -16,6 +16,7 @@ def glideOkhttp3IntegrationVersion = "1.5.0@aar"
 def photoViewVersion = "2.0.0"
 def guavaVersion = "22.0-android"
 def greenDaoVersion = "3.2.2"
+def agentWebVersion = "4.0.2"
 
 def static autoVersionCode() {
     return Integer.parseInt(new Date().format("yyMMdd", TimeZone.getTimeZone("UTC")))
@@ -75,5 +76,7 @@ ext {
     libGuava = "com.google.guava:guava:${guavaVersion}"
 
     libGreenDao = "org.greenrobot:greendao:${greenDaoVersion}"
+
+    libAgentWeb = "com.just.agentweb:agentweb:${agentWebVersion}"
 
 }
